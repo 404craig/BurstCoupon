@@ -1,3 +1,9 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#37003C">
 <title>Burst Coupn Table</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -200,8 +206,63 @@ td.pct strong{font-family:var(--display);font-size:20px}
 .callout{border-left:4px solid var(--accent-2);background:var(--surface);padding:12px 16px;border-radius:0 12px 12px 0}
 footer{color:var(--muted);font-size:12px;padding-block:20px 40px}
 @media (max-width:560px){.cp>summary{grid-template-columns:72px minmax(0,1fr)}.cp>summary .pill{grid-column:2;justify-self:start}.bar .wrap{gap:8px}.tabs{margin-left:0;width:100%}}
+
+html,body{margin:0}
+.tab svg,.tab .sm-l{display:none}
+.heat .rn{position:sticky;left:0;z-index:1;background:var(--surface)}
+@media (max-width:640px){
+  body{font-size:14px}
+  .bar .wrap{padding-block:9px}
+  .brand{font-size:18px}.brand svg{width:26px;height:26px}
+  .tabs{position:fixed;left:0;right:0;bottom:0;z-index:30;margin:0;width:auto;display:grid;grid-template-columns:repeat(5,1fr);gap:2px;background:var(--purple);box-shadow:0 -2px 0 var(--pink);padding:6px max(6px,env(safe-area-inset-right,0px)) calc(6px + env(safe-area-inset-bottom,0px)) max(6px,env(safe-area-inset-left,0px))}
+  .tab{display:flex;flex-direction:column;align-items:center;gap:3px;padding:7px 2px;border-radius:12px;font-size:11px;letter-spacing:0}
+  .tab svg{display:block;width:21px;height:21px}
+  .tab .lg-l{display:none}.tab .sm-l{display:inline}
+  main{padding-block:16px calc(84px + env(safe-area-inset-bottom,0px))}
+  .hero .wrap{padding-block:20px 18px;gap:12px}
+  .hero h1{font-size:34px}
+  .hero p{font-size:14px}
+  .kpis{grid-template-columns:1fr 1fr;gap:8px}
+  .kpi{padding:10px 12px}.kpi .v{font-size:24px}.kpi .s{display:none}
+  .kpi.hl{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between}
+  .kpi.hl .v{font-size:28px}
+  .view{gap:20px}
+  .sec-h{margin-bottom:10px}.sec-h h2{font-size:22px}.sec-h p{font-size:13px}
+  .card{padding:14px;border-radius:12px}
+  .champs{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:minmax(132px,40%);overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:4px;scrollbar-width:none}
+  .champs::-webkit-scrollbar{display:none}
+  .champ{scroll-snap-align:start;padding:12px}.champ .who{font-size:21px}
+  table.lg{min-width:0;font-size:13px}
+  table.lg .hm{display:none}
+  table.lg td,table.lg thead th{padding:10px 6px}
+  table.lg thead th{font-size:10px;letter-spacing:.06em}
+  td.pos{width:30px;font-size:16px}
+  td.player .avatar{display:none}
+  .pbar{display:none}
+  td.pct strong{font-size:17px}
+  .form{gap:2px}.f{width:16px;height:16px;font-size:8px}
+  .zone-key{font-size:11px;gap:10px}
+  .zone-key span:last-child{flex-basis:100%}
+  .heat{min-width:0;gap:3px}
+  .heat .h{font-size:9px;letter-spacing:.02em}
+  .heat .rn{font-size:12px}.heat .rn .avatar{display:none}
+  .heat .c{padding:7px 2px;font-size:12px;border-radius:6px}
+  .heat .c small{font-size:8px}
+  .chart-box{height:220px}.chart-box.tall{height:270px}
+  .mini-kpis{grid-template-columns:1fr 1fr;gap:8px}
+  .mk{padding:10px 12px}.mk .v{font-size:22px}
+  #seasonChips,#raceChips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;width:100%}
+  #seasonChips::-webkit-scrollbar,#raceChips::-webkit-scrollbar{display:none}
+  .chip{flex:none}
+  .pc-top .nm{font-size:22px}.pc-top .big{font-size:24px}.pc-top .rank{font-size:32px;min-width:26px}
+  .filters select{flex:1 1 40%}
+  footer{padding-bottom:12px}
+  body:not([data-view="overview"]) .hero{display:none}
+}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
+</head>
+<body>
 
 <header class="bar"><div class="wrap">
   <div class="brand">
@@ -209,11 +270,11 @@ footer{color:var(--muted);font-size:12px;padding-block:20px 40px}
     Burst Coupn
   </div>
   <nav class="tabs" role="tablist" aria-label="Sections">
-    <button class="tab" role="tab" data-view="overview" aria-selected="true">Overview</button>
-    <button class="tab" role="tab" data-view="seasons" aria-selected="false">Seasons</button>
-    <button class="tab" role="tab" data-view="players" aria-selected="false">Players</button>
-    <button class="tab" role="tab" data-view="coupons" aria-selected="false">Coupon archive</button>
-    <button class="tab" role="tab" data-view="notes" aria-selected="false">How it was graded</button>
+    <button class="tab" role="tab" data-view="overview" aria-selected="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><span class="lg-l">Overview</span><span class="sm-l">Table</span></button>
+    <button class="tab" role="tab" data-view="seasons" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4h8v3a4 4 0 0 1-8 0zM5 5h3v2a3 3 0 0 1-3-2zM19 5h-3v2a3 3 0 0 0 3-2zM12 11v5M8 20h8M10 16h4v4h-4z"/></svg><span class="lg-l">Seasons</span><span class="sm-l">Seasons</span></button>
+    <button class="tab" role="tab" data-view="players" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.5"/><path d="M16 14.2c2.9.4 5 2.8 5 5.8"/></svg><span class="lg-l">Players</span><span class="sm-l">Players</span></button>
+    <button class="tab" role="tab" data-view="coupons" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16v4a2 2 0 0 0 0 4v4H4v-4a2 2 0 0 0 0-4z"/><path d="M14 6v12" stroke-dasharray="2 2"/></svg><span class="lg-l">Coupon archive</span><span class="sm-l">Coupons</span></button>
+    <button class="tab" role="tab" data-view="notes" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg><span class="lg-l">How it was graded</span><span class="sm-l">Info</span></button>
   </nav>
 </div></header>
 
@@ -390,21 +451,21 @@ $$(".champ[data-season]").forEach(b=>b.onclick=()=>{selSeason=b.dataset.season;r
 
 /* LEAGUE TABLE */
 const COLS=[
- {k:"pos",t:"Pos"},{k:"m",t:"Player"},{k:"picks",t:"Picks",n:1},{k:"W",t:"W",n:1},{k:"L",t:"L",n:1},
- {k:"pct",t:"Win %",n:1},{k:"streak",t:"Best run",n:1},{k:"burst",t:"Burst",n:1},{k:"placed",t:"Turns",n:1},{k:"form",t:"Form"}];
+ {k:"pos",t:"Pos"},{k:"m",t:"Player"},{k:"picks",t:"Picks",n:1,hm:1},{k:"W",t:"W",n:1},{k:"L",t:"L",n:1},
+ {k:"pct",t:"Win %",n:1},{k:"streak",t:"Best run",n:1,hm:1},{k:"burst",t:"Burst",n:1,hm:1},{k:"placed",t:"Turns",n:1,hm:1},{k:"form",t:"Form"}];
 function tableHTML(st,season,sortK,asc){
   const ranked=rankRows(st);ranked.forEach((r,i)=>r.pos=i+1);
   let rows=[...ranked];
   if(sortK&&sortK!=="pos"){rows.sort((a,b)=>{const x=a[sortK],y=b[sortK];const v=typeof x==="string"?x.localeCompare(y):(x??-1)-(y??-1);return asc?v:-v});}
   else if(asc) rows.reverse();
-  const head="<thead><tr>"+COLS.map(c=>`<th class="${c.n?"n":""}" data-k="${c.k}" ${sortK===c.k||(!sortK&&c.k==="pos")?`aria-sort="${asc?"ascending":"descending"}"`:""}>${c.t}</th>`).join("")+"</tr></thead>";
+  const head="<thead><tr>"+COLS.map(c=>`<th class="${c.n?"n":""}${c.hm?" hm":""}" data-k="${c.k}" ${sortK===c.k||(!sortK&&c.k==="pos")?`aria-sort="${asc?"ascending":"descending"}"`:""}>${c.t}</th>`).join("")+"</tr></thead>";
   const body=rows.map(r=>{
     const z=r.pos===1?"z-champ":r.pos<=4?"z-top":r.pos===8?"z-rel":"";
     const f=formOf(r.m,season).map(p=>`<span class="f ${p.r}" title="${esc(fmtDate(p.date)+": "+(p.sel||"")+" "+(p.sc||""))}">${p.r}</span>`).join("");
     return `<tr class="${z}"><td class="pos">${r.pos}</td><td class="player"><span class="avatar">${ini(r.m)}</span>${r.m}</td>
-    <td class="n">${r.W+r.L}</td><td class="n">${r.W}</td><td class="n">${r.L}</td>
+    <td class="n hm">${r.W+r.L}</td><td class="n">${r.W}</td><td class="n">${r.L}</td>
     <td class="n pct"><strong>${pct(r.pct)}</strong><span class="pbar"><b style="width:${r.pct||0}%"></b></span></td>
-    <td class="n">${r.streak}</td><td class="n">${r.burst}</td><td class="n">${r.placed}${r.placed_won?` <span class="muted">(${r.placed_won} paid)</span>`:""}</td><td><span class="form">${f}</span></td></tr>`}).join("");
+    <td class="n hm">${r.streak}</td><td class="n hm">${r.burst}</td><td class="n hm">${r.placed}${r.placed_won?` <span class="muted">(${r.placed_won} paid)</span>`:""}</td><td><span class="form">${f}</span></td></tr>`}).join("");
   return head+"<tbody>"+body+"</tbody>";
 }
 function mountTable(el,getSt,season){
@@ -420,8 +481,8 @@ mountTable($("#tblOverall"),()=>D.overall,()=>null);
 /* HEATMAP */
 function heat(){
   const lo=css("--heat-lo"),hi=css("--heat-hi");
-  const el=$("#heat");el.style.gridTemplateColumns=`110px repeat(${S.length+1},minmax(70px,1fr))`;
-  let h=`<div></div>`+S.map(s=>`<div class="h">${s}</div>`).join("")+`<div class="h">All time</div>`;
+  const el=$("#heat");const sm=window.matchMedia("(max-width:640px)").matches;el.style.gridTemplateColumns=sm?`72px repeat(${S.length+1},minmax(46px,1fr))`:`110px repeat(${S.length+1},minmax(70px,1fr))`;
+  let h=`<div class="rn"></div>`+S.map(s=>`<div class="h">${s}</div>`).join("")+`<div class="h">All time</div>`;
   const best={};S.forEach(s=>best[s]=leaders(D.season_stats[s].members).map(x=>x.m));
   best.all=ovTop.map(x=>x.m);
   rankRows(D.overall).forEach(r=>{
@@ -448,7 +509,7 @@ function mk(id,cfg){if(charts[id])charts[id].destroy();charts[id]=new Chart(docu
 function legsColor(c){return c.outcome==="won"?css("--win"):c.outcome==="cashed_out"?css("--cash"):c.outcome==="pending"?css("--accent-2"):c.L===1?css("--loss"):css("--void");}
 function legsChart(id,list){
   const o=baseOpts();o.scales.y.max=8;o.scales.y.min=0;o.scales.y.ticks.stepSize=2;o.scales.y.title={display:true,text:"Legs won",color:css("--muted")};
-  o.scales.x.ticks.maxRotation=0;o.scales.x.ticks.autoSkip=true;o.scales.x.ticks.maxTicksLimit=10;
+  o.scales.x.ticks.maxRotation=0;o.scales.x.ticks.autoSkip=true;o.scales.x.ticks.maxTicksLimit=innerWidth<640?4:10;
   o.plugins.tooltip.callbacks={title:i=>fmtDate(list[i[0].dataIndex].date)+" · "+list[i[0].dataIndex].season,
     label:i=>{const c=list[i.dataIndex];const L=[`${c.W} of ${c.n} legs won`,`Put on by ${c.by||"unknown"}`,`Outcome: ${({won:"Landed",cashed_out:"Cashed out",lost:"Burst",pending:"In play"})[c.outcome]}`];
       if(c.ret)L.push(`Returned ${gbp(c.ret)}`);if(c.burst_by)L.push(`Burst by ${c.burst_by}`);return L;}};
@@ -465,7 +526,7 @@ function moneyChart(){
 }
 function plChart(){
   let run=0;const pts=settled.map(c=>{run+=(c.ret||0)-16;return run});
-  const o=baseOpts();o.scales.y.ticks.callback=v=>gbp(v);o.scales.x.ticks.maxTicksLimit=8;o.scales.x.ticks.maxRotation=0;
+  const o=baseOpts();o.scales.y.ticks.callback=v=>gbp(v);o.scales.x.ticks.maxTicksLimit=innerWidth<640?4:8;o.scales.x.ticks.maxRotation=0;
   o.plugins.tooltip.callbacks={title:i=>fmtDate(settled[i[0].dataIndex].date),label:i=>{const c=settled[i.dataIndex];return [`Running total ${gbp(i.raw)}`,c.ret?`This coupon paid ${gbp(c.ret)}`:"Coupon burst (−£16)"]}};
   o.interaction={mode:"index",intersect:false};
   const acc=css("--accent");
@@ -480,7 +541,7 @@ $("#seasonChips").innerHTML=S.map(s=>`<button class="chip" data-s="${s}">${s}</b
 $$("#seasonChips .chip").forEach(b=>b.onclick=()=>{selSeason=b.dataset.s;renderSeason()});
 const drawSeasonTable=mountTable($("#tblSeason"),()=>D.season_stats[selSeason].members,()=>selSeason);
 function renderSeason(){
-  $$("#seasonChips .chip").forEach(b=>b.setAttribute("aria-pressed",b.dataset.s===selSeason));
+  $$("#seasonChips .chip").forEach(b=>b.setAttribute("aria-pressed",b.dataset.s===selSeason));{const w=$("#seasonChips"),a=w.querySelector('[aria-pressed="true"]');if(a)w.scrollLeft=a.offsetLeft-w.offsetLeft-16;}
   const st=D.season_stats[selSeason];const n=st.returned-st.staked;
   const cl=D.coupons.filter(c=>c.season===selSeason);
   const L=leaders(st.members);
@@ -506,7 +567,7 @@ function race(){
   $$("#raceChips .chip").forEach(b=>b.setAttribute("aria-pressed",b.dataset.m===raceSel));
   const cs=D.coupons.filter(c=>c.outcome!=="pending");
   const series={};M.forEach(m=>{let v=0;series[m]=cs.map(c=>{c.picks.forEach(p=>{if(p.m===m&&!p.dup){if(p.r==="W")v++;else if(p.r==="L")v--;}});return v;})});
-  const o=baseOpts();o.interaction={mode:"nearest",intersect:false,axis:"x"};o.scales.x.ticks.maxTicksLimit=8;o.scales.x.ticks.maxRotation=0;
+  const o=baseOpts();o.interaction={mode:"nearest",intersect:false,axis:"x"};o.scales.x.ticks.maxTicksLimit=innerWidth<640?4:8;o.scales.x.ticks.maxRotation=0;
   o.scales.y.title={display:true,text:"Wins minus losses",color:css("--muted")};
   o.plugins.tooltip.callbacks={title:i=>fmtDate(cs[i[0].dataIndex].date),label:i=>`${i.dataset.label}: ${i.raw>0?"+":""}${i.raw}`};
   const hi=css("--accent-2"),mu=`color-mix(in oklab, ${css("--muted")} 40%, transparent)`;
@@ -572,7 +633,7 @@ function archive(){
 $("#caveats").innerHTML=CAVEATS.map(x=>`<li>${esc(x)}</li>`).join("");
 
 /* NAV */
-function show(v){$$(".tab").forEach(t=>t.setAttribute("aria-selected",t.dataset.view===v));$$(".view").forEach(s=>s.hidden=s.id!=="v-"+v);
+function show(v){document.body.dataset.view=v;$$(".tab").forEach(t=>t.setAttribute("aria-selected",t.dataset.view===v));$$(".view").forEach(s=>s.hidden=s.id!=="v-"+v);
   try{history.replaceState(null,"","#"+v)}catch(e){}
   drawFor(v);window.scrollTo({top:0,behavior:"instant"});}
 $$(".tab").forEach(t=>t.onclick=()=>show(t.dataset.view));
@@ -590,6 +651,10 @@ archive();
 const mq=window.matchMedia("(prefers-color-scheme: dark)");
 const redraw=()=>{const v=($$(".tab").find(t=>t.getAttribute("aria-selected")==="true")||{}).dataset?.view||"overview";drawFor(v);};
 mq.addEventListener?.("change",redraw);
+let rT;window.addEventListener("resize",()=>{clearTimeout(rT);rT=setTimeout(()=>{if(!$("#v-overview").hidden)heat();},200)});
 new MutationObserver(redraw).observe(document.documentElement,{attributes:true,attributeFilter:["data-theme"]});
 })();
 </script>
+
+</body>
+</html>
